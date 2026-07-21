@@ -1,0 +1,186 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ACCOUNT } from "@/data/account";
+import Nav from "@/components/Nav";
+import Hero from "@/components/Hero";
+import FadeIn from "@/components/FadeIn";
+import Footer from "@/components/Footer";
+
+export const metadata: Metadata = { title: ACCOUNT.businessCase.meta.title };
+
+export default function BusinessCasePage() {
+  const { businessCase, gap } = ACCOUNT;
+
+  return (
+    <div className="min-h-screen bg-[var(--brand-bg)]">
+      <Nav />
+
+      <Hero
+        eyebrow="The Business Case"
+        headline={businessCase.headline.replace(/^.*:\s*/, "")}
+        subheadline={businessCase.subhead}
+        ctaPrimary={{ label: "Meet the Account Team", href: "/account-team" }}
+        ctaSecondary={{ label: "See the Pilot Plan", href: "/pilot" }}
+      />
+
+      {/* Burning Platform */}
+      <section className="bg-[var(--brand-light)] border-t border-black/6">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <FadeIn>
+            <div className="mb-14">
+              <div className="mb-5">
+                <span className="eyebrow-pill-outline">The Problem</span>
+              </div>
+              <h2 className="font-display text-4xl sm:text-5xl font-black text-[#0A0A0A] tracking-tight leading-[0.95] mb-4 max-w-3xl">
+                {gap.headline}
+              </h2>
+              <p className="text-lg text-[#3D3D3D] max-w-2xl leading-relaxed">{gap.body}</p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {gap.stats.map((stat, i) => (
+              <FadeIn key={stat.label} delay={i * 80}>
+                <div className="bg-white border border-black/8 rounded-2xl p-6 h-full">
+                  <p className="font-display text-4xl font-black text-[var(--brand-primary)] mb-2">{stat.value}</p>
+                  <p className="text-sm font-bold text-[#0A0A0A] mb-1">{stat.label}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Lines */}
+      <section className="bg-white border-t border-black/6">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <FadeIn>
+            <div className="mb-14">
+              <div className="mb-5">
+                <span className="eyebrow-pill-outline">{businessCase.ask}</span>
+              </div>
+              <h2 className="font-display text-4xl sm:text-5xl font-black text-[#0A0A0A] tracking-tight leading-[0.95] mb-4 max-w-2xl">
+                Each investment stands alone.<br />Together, they change the operating model.
+              </h2>
+              <p className="text-lg text-[#3D3D3D] max-w-xl leading-relaxed">{businessCase.askNote}</p>
+            </div>
+          </FadeIn>
+
+          <div className="space-y-4 mb-10">
+            {businessCase.investmentLines.map((line, i) => (
+              <FadeIn key={line.product} delay={i * 80}>
+                <div className="flex items-center gap-6 bg-[var(--brand-light)] border border-black/8 rounded-2xl px-7 py-5">
+                  <div className="shrink-0 w-2 h-10 rounded-full bg-[var(--brand-primary)]" />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-base font-bold text-[#0A0A0A]">{line.product}</p>
+                    <p className="text-xs text-[#3D3D3D]">{line.stage} · {line.status}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn delay={200}>
+            <div className="bg-[var(--brand-bg)] rounded-2xl p-8">
+              <p className="text-[0.65rem] font-bold tracking-widest uppercase text-white/30 mb-3">Why consolidate</p>
+              <p className="text-xl font-display font-black mb-3 leading-snug" style={{ color: "var(--brand-text-on-primary)" }}>
+                Separate conversations become separate procurement cycles, separate stakeholder alignments, and separate timelines.
+              </p>
+              <p className="text-base text-white/60 leading-relaxed">
+                One integrated conversation — structured around the right moment — creates more value than the sum of its parts.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Value Unlocked */}
+      <section className="bg-[var(--brand-bg)]">
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <FadeIn>
+            <div className="mb-14">
+              <div className="mb-5">
+                <span className="eyebrow-pill">{businessCase.valueEyebrow ?? "The Value at Stake"}</span>
+              </div>
+              <h2 className="font-display text-4xl sm:text-5xl font-black tracking-tight leading-[0.95] mb-4 max-w-2xl" style={{ color: "var(--brand-text-on-primary)" }}>
+                {businessCase.valueHeadline ?? "This is what inaction costs."}
+              </h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+            {businessCase.valueUnlocked.map((v, i) => (
+              <FadeIn key={v.label} delay={i * 80}>
+                <div className="border border-white/8 rounded-2xl p-7 h-full bg-white/[0.03] hover:bg-white/[0.05] transition-all duration-200">
+                  <p className="text-xs font-bold tracking-widest uppercase text-[var(--brand-primary)]/70 mb-3">{v.label}</p>
+                  <p className="font-display text-5xl font-black mb-3" style={{ color: "var(--brand-text-on-primary)" }}>{v.value}</p>
+                  <p className="text-sm text-white/55 leading-relaxed">{v.description}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What makes this account different */}
+      {businessCase.clientZeroNote && (
+        <section className="border-t" style={{ background: "var(--brand-section-alt)", borderColor: "var(--brand-surface-border)" }}>
+          <div className="max-w-6xl mx-auto px-6 py-24">
+            <FadeIn>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div>
+                  <p className="text-[0.6rem] font-bold tracking-[0.18em] uppercase mb-5" style={{ color: "var(--brand-text-muted)", opacity: 0.4 }}>
+                    {ACCOUNT.company}
+                  </p>
+                  <p className="text-xl leading-relaxed" style={{ color: "var(--brand-text-muted)" }}>
+                    {businessCase.clientZeroNote}
+                  </p>
+                </div>
+                {businessCase.windowNote && (
+                  <div className="pt-8 lg:pt-0" style={{ borderTop: "1px solid var(--brand-surface-border)" }}>
+                    <p className="text-[0.6rem] font-bold tracking-[0.18em] uppercase mb-5" style={{ color: "var(--brand-text-muted)", opacity: 0.4 }}>
+                      Why Now
+                    </p>
+                    <p className="text-xl leading-relaxed" style={{ color: "var(--brand-text-muted)" }}>
+                      {businessCase.windowNote}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
+      {/* CTA */}
+      <section className="bg-[var(--brand-bg)] border-t border-white/6">
+        <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-sm text-white/40 mb-1">Next</p>
+            <p className="font-display text-lg font-black text-white">90-Day Pilot Path</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/pilot"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-dark)] font-bold text-base transition-all duration-200 hover:-translate-y-0.5"
+              style={{ color: "var(--brand-text-on-primary)" }}
+            >
+              See the Pilot Plan
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden>
+                <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
+            <Link
+              href="/account-team"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full border border-white/20 text-white font-bold text-base transition-all duration-200 hover:border-white/40 hover:-translate-y-0.5"
+            >
+              Meet the Account Team
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}

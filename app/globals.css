@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-image:
+      radial-gradient(ellipse 100% 60% at 0% 0%, color-mix(in srgb, var(--brand-primary) 18%, transparent) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, color-mix(in srgb, var(--brand-primary) 08%, transparent) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  :root {
+    /* ── Brand tokens — set these per account in ACCOUNT.brand ── */
+    --brand-primary:        #0066FF;
+    --brand-primary-dark:   #0052CC;
+    --brand-bg:             #0A0A0A;
+    --brand-light:          #F5F5F5;
+
+    /* ── Theme tokens — set by theme preset, override in ACCOUNT.brand ── */
+    --brand-text:           #FFFFFF;
+    --brand-text-muted:     rgba(255,255,255,0.55);
+    --brand-text-heading:   #FFFFFF;
+    --brand-surface:        rgba(255,255,255,0.04);
+    --brand-surface-border: rgba(255,255,255,0.08);
+    --brand-section-alt:    rgba(255,255,255,0.02);
+    --brand-radius:         1rem;
+    --brand-card-bg:        rgba(255,255,255,0.04);
+    --brand-card-border:    rgba(255,255,255,0.08);
+    --brand-card-shadow:    none;
+    --brand-density-gap:    1.5rem;
+    --brand-density-pad:    2rem;
+  }
+}
+
+/* ── Scroll animations ───────────────────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease-out, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero entrance ───────────────────────────────────────────────────────── */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow  { animation: hero-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+.hero-headline { animation: hero-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both; }
+.hero-sub      { animation: hero-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both; }
+.hero-ctas     { animation: hero-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.46s both; }
+
+/* ── Font utilities ──────────────────────────────────────────────────────── */
+.font-display { font-family: var(--font-display), serif; }
+
+/* ── Eyebrow pill — brand primary (on dark bg) ───────────────────────────── */
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.85rem;
+  border-radius: 9999px;
+  background: var(--brand-primary);
+  color: rgba(255,255,255,0.95);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ── Page transitions ────────────────────────────────────────────────────── */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-transition {
+  animation: page-fade-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Eyebrow pill — outline ──────────────────────────────────────────────── */
+.eyebrow-pill-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.85rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--brand-primary);
+  color: var(--brand-primary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--brand-primary) 10%, transparent);
+}
+
+/* ── Nav dropdown scrollbar — always visible, themed ────────────────────── */
+.nav-scroll::-webkit-scrollbar        { width: 6px; }
+.nav-scroll::-webkit-scrollbar-track  { background: var(--brand-surface-border); border-radius: 9999px; margin: 8px 0; }
+.nav-scroll::-webkit-scrollbar-thumb  { background: var(--brand-primary); border-radius: 9999px; min-height: 32px; }
+.nav-scroll::-webkit-scrollbar-thumb:hover { background: var(--brand-primary-dark); }
+/* Firefox */
+.nav-scroll { scrollbar-width: thin; scrollbar-color: var(--brand-primary) var(--brand-surface-border); }
+
+/* ── Section wave — brand-tinted decorative wave behind section content ── */
+.section-wave {
+  position: relative;
+  overflow: hidden;
+}
+.section-wave::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200' preserveAspectRatio='xMidYMid slice'%3E%3Cpath d='M-100 140 Q200 60 500 100 Q800 140 1100 40 Q1300 0 1600 80' stroke='%230066FF' stroke-width='120' stroke-linecap='round' fill='none' opacity='0.045'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center top;
+  pointer-events: none;
+}
