@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ACCOUNT } from "@/data/account";
+import { asset } from "@/lib/asset";
 
 interface HeroProps {
   eyebrow?: string;
@@ -15,7 +16,7 @@ interface HeroProps {
 export default function Hero({ eyebrow, headline, subheadline, ctaPrimary, ctaSecondary, variant = "act", stats }: HeroProps) {
   const isHome = variant === "home";
   const heroLayout = ACCOUNT.brand.heroLayout ?? "centered";
-  const heroImage = ACCOUNT.brand.heroImage;
+  const heroImage = ACCOUNT.brand.heroImage ? asset(ACCOUNT.brand.heroImage) : undefined;
 
   // Act pages always use centered; only home page respects heroLayout
   const layout = isHome ? heroLayout : "centered";

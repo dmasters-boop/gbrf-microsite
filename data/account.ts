@@ -162,7 +162,7 @@ export const ACCOUNT = {
 
     // Full-bleed Great Barrier Reef photography — the Reef is the brand.
     // Rendered behind the hero with a deep-ocean brand-tinted overlay.
-    heroImage: "/images/hero-gbrf-reef.jpg" as string | undefined,
+    heroImage: "/images/gbrf-hero-reef.jpg" as string | undefined,
 
     headerAlign: "left" as "left" | "center",
 

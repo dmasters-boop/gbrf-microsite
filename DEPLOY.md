@@ -69,19 +69,17 @@ re-encryption reproducible.
 Push only the contents of `site/` to a dedicated branch:
 
 ```bash
-git subtree split --prefix site -b gh-pages 2>/dev/null || {
-  # site/ is gitignored, so use a clean worktree push instead:
-  cd site
-  git init && git checkout -b gh-pages
-  git add -A && git commit -m "Encrypted build"
-  git remote add origin "https://github.com/<your-github-username>/gbrf-microsite.git"
-  git push -f origin gh-pages
-  cd ..
-}
+npx gh-pages -d site -b gh-pages --dotfiles -m "Encrypted build"
 ```
 
-(The simplest reliable path is the `cd site` block — it always works because `site/`
-is a standalone folder.)
+- `-d site` publishes the encrypted folder; `-b gh-pages` is the target branch.
+- **`--dotfiles` is required** — without it `.nojekyll` is dropped and GitHub Pages
+  strips the `_next/` folder (blank site).
+- This is idempotent: it uses its own temp checkout, so it never puts a `.git`
+  inside `site/` and won't conflict with rebuilds. Run it again for every redeploy.
+
+> Do **not** `git init` inside `site/` — each rebuild wipes `site/`, so an in-folder
+> repo just gets recreated every time. `gh-pages` avoids that entirely.
 
 ## 4. Enable GitHub Pages (source = `gh-pages` branch, root)
 
@@ -109,7 +107,7 @@ Give it a minute, then open:
 
 ```bash
 STATICRYPT_PASSWORD='GBRF-Reef-2031' ./build-static.sh
-cd site && git add -A && git commit -m "Update" && git push origin gh-pages && cd ..
+npx gh-pages -d site -b gh-pages --dotfiles -m "Update"
 ```
 
 ## Changing the password

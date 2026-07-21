@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { ACCOUNT } from "@/data/account";
+import { asset } from "@/lib/asset";
 
 const allNavLinks = [
   { href: "/",               slug: "overview",      label: "Overview" },
@@ -66,7 +67,7 @@ export default function Nav() {
             <div className="flex items-center gap-2.5">
               <span className="flex items-center bg-white rounded-md px-2 py-1 shrink-0">
                 <Image
-                  src={ACCOUNT.brand.customerLogoDark ?? ACCOUNT.brand.customerLogo}
+                  src={asset(ACCOUNT.brand.customerLogoDark ?? ACCOUNT.brand.customerLogo)}
                   alt={ACCOUNT.company}
                   width={140}
                   height={40}

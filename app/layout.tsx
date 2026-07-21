@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     siteName: `${ACCOUNT.company} Executive Briefing`,
     title: `${ACCOUNT.hero.headline.replace(/\n/g, " ")} · ${ACCOUNT.company}`,
     description: ACCOUNT.hero.subheadline,
-    images: [{ url: "/images/hero-gbrf-reef.jpg", width: 1200, height: 630, alt: `${ACCOUNT.company} Executive Briefing` }],
+    images: [{ url: "/images/gbrf-hero-reef.jpg", width: 1200, height: 630, alt: `${ACCOUNT.company} Executive Briefing` }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${ACCOUNT.hero.headline.replace(/\n/g, " ")} · ${ACCOUNT.company}`,
     description: ACCOUNT.hero.subheadline,
-    images: ["/images/hero-gbrf-reef.jpg"],
+    images: ["/images/gbrf-hero-reef.jpg"],
   },
 };
 

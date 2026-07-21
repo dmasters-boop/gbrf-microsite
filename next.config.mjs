@@ -16,9 +16,15 @@ const nextConfig = {
   // route for StatiCrypt to encrypt.
   trailingSlash: true,
 
-  // Project-site subpath. Prefixes routing, next/image, and _next assets.
+  // Project-site subpath. Prefixes routing and _next assets. NOTE: files in
+  // public/ referenced by string src are NOT auto-prefixed, so we expose the
+  // basePath to the client (see lib/asset.ts) and prepend it manually.
   basePath,
   assetPrefix: basePath || undefined,
+
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 };
 
 export default nextConfig;
