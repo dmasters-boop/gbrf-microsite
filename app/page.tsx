@@ -164,14 +164,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" style={{ gap: "var(--brand-density-gap)" }}>
             {[
-              { href: "/architecture",  label: "Architecture",   desc: "The layered platform stack" },
-              { href: "/strategy",      label: "Strategy",       desc: "Transformation framework" },
-              { href: "/agent-tracker", label: "Agent Tracker",  desc: "What's live and in motion" },
-              { href: "/proof",         label: "Results",        desc: "Outcomes by function" },
-              { href: "/use-cases",     label: "Use Cases",      desc: "Specific workflows transformed" },
+              { href: "/business-case", label: "Business Case",  desc: "Why Unlimited Edition, and why now" },
+              { href: "/strategy",      label: "Strategy",       desc: "Unlimited vs Enterprise edition" },
               { href: "/commercials",   label: "Commercials",    desc: "Investment overview and pricing" },
-              { href: "/business-case", label: "Business Case",  desc: "The investment and the return" },
-              { href: "/pilot",         label: "Pilot Plan",     desc: "90-day path to production" },
+              { href: "/proof",         label: "Results",        desc: "Nonprofit benchmark outcomes" },
             ].filter(item => ACCOUNT.pages.includes(item.href.replace("/", ""))).map((item, i) => (
               <FadeIn key={item.href} delay={i * 40} className="h-full">
                 <Link

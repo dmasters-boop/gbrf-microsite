@@ -3,26 +3,11 @@ import { ACCOUNT } from "@/data/account";
 
 const allFooterLinks = [
   { href: "/",               slug: "overview",      label: "Overview" },
-  { href: "/act-1",          slug: "act-1",         label: ACCOUNT.acts[0].title },
-  { href: "/act-2",          slug: "act-2",         label: ACCOUNT.acts[1].title },
-  { href: "/act-3",          slug: "act-3",         label: ACCOUNT.acts[2].title },
-  { href: "/use-cases",      slug: "use-cases",     label: "Use Cases" },
-  { href: "/architecture",   slug: "architecture",  label: "Architecture" },
-  { href: "/strategy",       slug: "strategy",      label: "Strategy" },
-  { href: "/agent-tracker",  slug: "agent-tracker", label: "Agent Tracker" },
-  { href: "/proof",          slug: "proof",         label: "Results" },
-  { href: "/commercials",    slug: "commercials",   label: "Commercials" },
   { href: "/business-case",  slug: "business-case", label: "Business Case" },
-  { href: "/pilot",          slug: "pilot",         label: "Pilot Plan" },
-  { href: "/demo-library",   slug: "demo-library",  label: "Demo Library" },
-  { href: "/account-team",   slug: "account-team",  label: "Account Team" },
-  { href: "/agents",         slug: "agents",        label: "Agents" },
   { href: "/strategy",       slug: "strategy",      label: "Strategy" },
-  { href: "/pulse",          slug: "pulse",         label: "Account Pulse" },
-  { href: "/roi-calculator", slug: "roi-calculator",label: "ROI Calculator" },
-  { href: "/innovation",     slug: "innovation",    label: "Innovation" },
-  { href: "/headless-360",   slug: "headless-360",  label: "Headless 360" },
-  { href: "/global-map",     slug: "global-map",    label: "Global Map" },
+  { href: "/commercials",    slug: "commercials",   label: "Commercials" },
+  { href: "/proof",          slug: "proof",         label: "Results" },
+  { href: "/account-team",   slug: "account-team",  label: "Account Team" },
 ];
 
 const footerLinks = allFooterLinks.filter(

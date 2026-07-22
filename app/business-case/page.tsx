@@ -20,7 +20,7 @@ export default function BusinessCasePage() {
         headline={businessCase.headline.replace(/^.*:\s*/, "")}
         subheadline={businessCase.subhead}
         ctaPrimary={{ label: "Meet the Account Team", href: "/account-team" }}
-        ctaSecondary={{ label: "See the Pilot Plan", href: "/pilot" }}
+        ctaSecondary={{ label: "View the Commercials", href: "/commercials" }}
       />
 
       {/* Burning Platform */}
@@ -157,15 +157,15 @@ export default function BusinessCasePage() {
         <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <p className="text-sm text-white/40 mb-1">Next</p>
-            <p className="font-display text-lg font-black text-white">90-Day Pilot Path</p>
+            <p className="font-display text-lg font-black text-white">Investment Overview</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/pilot"
+              href="/commercials"
               className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-dark)] font-bold text-base transition-all duration-200 hover:-translate-y-0.5"
               style={{ color: "var(--brand-text-on-primary)" }}
             >
-              See the Pilot Plan
+              View the Commercials
               <svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden>
                 <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

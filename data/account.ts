@@ -185,15 +185,10 @@ export const ACCOUNT = {
   // story, not an autonomous-agent story, and inventing that content would break
   // the "don't editorialize / don't invent" rules. Their page files were removed.
   pages: [
-    "act-1",
-    "act-2",
-    "use-cases",
-    "architecture",
-    "strategy",
-    "proof",
-    "commercials",
     "business-case",
-    "pilot",
+    "strategy",
+    "commercials",
+    "proof",
     "account-team",
   ] as string[],
 
@@ -204,8 +199,8 @@ export const ACCOUNT = {
     headline: "Built for\nwhat comes next.",
     subheadline:
       "GBRF manages one of the most complex conservation operations in the world — 400+ active projects protecting a $95 billion national and natural asset. The platform behind that mission needs to match its ambition.",
-    ctaPrimary:   { label: "See the burning platform", href: "/act-1" },
-    ctaSecondary: { label: "Meet the team",            href: "/account-team" },
+    ctaPrimary:   { label: "Read the business case", href: "/business-case" },
+    ctaSecondary: { label: "Meet the team",          href: "/account-team" },
   },
 
   // ── Platform capability tiles (home grid) ──────────────────────────────────
@@ -236,25 +231,25 @@ export const ACCOUNT = {
   // ── Three chapters (home page nav cards) ─────────────────────────────────
   acts: [
     {
-      number: "The Burning Platform",
-      href: "/act-1",
-      title: "Outgrown the Database",
-      tagline: "Raiser's Edge was built for one job.",
-      description: "GBRF is no longer just a fundraising organisation. It's a program delivery engine — and the answer to a simple COO question now requires manual assembly across systems that don't talk to each other.",
+      number: "The Case",
+      href: "/business-case",
+      title: "The Business Case",
+      tagline: "Why Unlimited Edition — and why now.",
+      description: "The entitlements that make implementation succeed, the add-ons worth evaluating, and the timing that matters for GBRF's FY27 start.",
     },
     {
-      number: "The Platform",
-      href: "/act-2",
-      title: "Built for the Mission",
-      tagline: "Nonprofit Cloud unifies the full stakeholder picture.",
-      description: "Not a CRM with a nonprofit skin. NPC is purpose-built for the relationship-led, program-delivering, impact-reporting organisation GBRF actually runs.",
-    },
-    {
-      number: "Built for What Comes Next",
+      number: "The Editions",
       href: "/strategy",
       title: "Why Unlimited Edition",
       tagline: "The version that scales without compromise.",
-      description: "Same price list, same phased ramp. The difference is what's included — the entitlements that make a GravityLab implementation lower-risk and built to scale.",
+      description: "Same price list, same phased ramp. The difference is what's included — the entitlements that make a Gravity Lab implementation lower-risk and built to scale.",
+    },
+    {
+      number: "The Numbers",
+      href: "/commercials",
+      title: "Investment Overview",
+      tagline: "The five-year investment, modelled.",
+      description: "Scenario comparison, phased licensing, and the GBRF Option — bespoke pricing designed for the mission.",
     },
   ],
 
@@ -889,7 +884,7 @@ export const ACCOUNT = {
   strategy: {
     meta: { title: "Unlimited vs Enterprise · GBRF Executive Briefing" },
     headline: "Unlimited Edition vs Enterprise Edition.",
-    opening: "Both options deliver Nonprofit Cloud on the Ohana for Nonprofits price list with the same phased ramp — starting 24 August 2026 and scaling to full deployment by mid-2027. The difference is what's included.",
+    opening: "Both options begin August 2026 and scale to full deployment by mid-2027.",
     matrixLabel: "What Unlimited Edition Includes That Enterprise Does Not",
     // Custom column labels for the edition comparison (see patched strategy/page.tsx).
     fromLabel: "Enterprise Edition",
@@ -1016,6 +1011,13 @@ export const ACCOUNT = {
       description: "Renewals Manager ensuring commercial continuity and long-term platform investment protection.",
       email:       "mbinsupar@salesforce.com",
     },
+    {
+      name:        "Jason Hincks",
+      role:        "Industry Solutions & Strategy Director, Nonprofit",
+      group:       "specialist" as TeamGroup,
+      description: "Industry Solutions & Strategy lead for Nonprofit, bringing sector best practice and platform strategy to the GBRF engagement.",
+      email:       "jhincks@salesforce.com",
+    },
   ] as TeamMember[],
 
   // ── Agentforce Embedded Chat — disabled (no deployment in scope) ──────────
@@ -1027,11 +1029,11 @@ export const ACCOUNT = {
     label: string;
   },
 
-  // ── CTA (used in footer + pilot close + sticky nav) ───────────────────────
+  // ── CTA (used in home close, commercials cross-link + sticky nav) ─────────
   cta: {
     headline:  "GBRF's mission is too important to be held back by infrastructure that can't keep up.",
-    body:      "Confirm the commercial path by 31 July so GravityLab can begin Phase 1 configuration on 24 August — and the Foundation enters FY27 with the operational platform its mission demands.",
-    primary:   { label: "Meet the account team",         href: "/account-team" },
-    secondary: { label: "See the path to deployment",     href: "/pilot" },
+    body:      "Phase 1 configuration to begin in August with Gravity Lab.",
+    primary:   { label: "Meet the account team",  href: "/account-team" },
+    secondary: { label: "Talk to the team",       href: "/account-team" },
   },
 };
